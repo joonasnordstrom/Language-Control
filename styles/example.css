@@ -1,0 +1,10 @@
+/*
+    muuttujat
+*/
+:root {
+    --delete: "Delete";
+}
+
+a.example-delete:after {
+  content: var(--delete);
+}
