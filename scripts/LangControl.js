@@ -18,7 +18,7 @@ var translationList = {};
 // oletuskieli
 const DEFAULT_LANG = "en";
 // polku
-const JSON_DATA_PATH = "file:///C:/Users/joonas/Documents/Repo/Language%20Control/data/example.json";
+const JSON_DATA_PATH = "data/example.json";
 
 
 $(document).ready(function () {
@@ -34,7 +34,7 @@ var LanguageControl = new function () {
 
         var lang = getQueryParameterByName("lang");
 
-        $.getJSON(JSON_DATA_PATH, function (data) {
+        $.getJSON(url, function (data) {
             dataByLang = (typeof data[lang] != "undefined") ? data[lang] : data[DEFAULT_LANG];
         })
             .success(function () {
