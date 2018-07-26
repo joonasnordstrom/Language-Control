@@ -1,7 +1,7 @@
 /*
  * Kielituki,
  * käännöksiä tarvitseviin html elementteihin lisätään "data-globalize=[key]" attribuutti,
- * jota vastaava "key":"value" pari lisätään "globalization.json" tiedostoon,
+ * jota vastaava "key":"value" pari lisätään polun (JSON_DATA_PATH) määrittämään JSON tiedostoon,
  * tämä luokka lukee käännökset ja populoi ne elementteihinsä, sekä globaaliin translatioList muuttujaan query parametrissa määritetyn kielen mukaan
 
  * Muuttujat prefixoidaan asetettavan propertien mukaan {prefix}:
@@ -16,9 +16,9 @@
 var translationList = {};
 
 // oletuskieli
-const DEFAULT_LANG = "fi";
+const DEFAULT_LANG = "en";
 // polku
-const JSON_DATA_PATH = "/Timepub/ResourcesDK/data/globalization.json";
+const JSON_DATA_PATH = "file:///C:/Users/joonas/Documents/Repo/Language%20Control/data/example.json";
 
 
 $(document).ready(function () {
@@ -34,7 +34,7 @@ var LanguageControl = new function () {
 
         var lang = getQueryParameterByName("lang");
 
-        $.getJSON(url, function (data) {
+        $.getJSON(JSON_DATA_PATH, function (data) {
             dataByLang = (typeof data[lang] != "undefined") ? data[lang] : data[DEFAULT_LANG];
         })
             .success(function () {

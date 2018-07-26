@@ -2,9 +2,9 @@
     muuttujat
 */
 :root {
-    --delete: "Delete";
+    --example: "Example button";
 }
 
-a.example-delete:after {
-  content: var(--delete);
+a.example-button:after {
+  content: var(--example);
 }
